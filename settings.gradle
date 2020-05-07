@@ -1,0 +1,6 @@
+rootProject.name = 'perfect-prediction'
+include 'common'
+include 'learning'
+include 'ui'
+include 'learning-server'
+

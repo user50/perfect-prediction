@@ -1,0 +1,65 @@
+#root{
+    -fx-background-color: #f6faff;
+    -fx-fit-to-width: true;
+    -fx-alignment: top-center;
+    -fx-spacing: 2;
+
+}
+
+#head{
+    -fx-background-color: #f6faff;
+    -fx-fit-to-width: true;
+    -fx-alignment: left;
+    -fx-border-color: rgba(164, 164, 164, 0.97);
+    -fx-spacing: 4;
+    -fx-border-style: solid;
+    -fx-min-height: 80;
+}
+
+#trainingBox{
+    -fx-background-color: #d5ffda;
+    -fx-fit-to-width: true;
+    -fx-spacing: 10;
+    -fx-border-color: rgba(164, 164, 164, 0.97);
+    -fx-border-style: solid;
+}
+
+
+#topBlock{
+    -fx-background-color: #f6faff;
+    -fx-fit-to-width: true;
+    -fx-alignment: top-center;
+}
+
+#contentBox{
+    -fx-background-color: #f6faff;
+    -fx-spacing: 4;
+    -fx-min-width: 1000;
+}
+
+#row{
+    -fx-background-color: #fff9e9;
+    -fx-alignment: baseline-center;
+    -fx-border-width: 2;
+    -fx-border-color: rgba(164, 164, 164, 0.97);
+    -fx-border-style: solid;
+}
+
+#buttonBox{
+    -fx-background-color: #fec1ff;
+    -fx-fit-to-width: true;
+    -fx-fit-to-height: true;
+    -fx-alignment: baseline-center;
+    -fx-border-width: 2;
+    -fx-border-color: rgba(164, 164, 164, 0.97);
+    -fx-border-style: solid;
+}
+
+#showMoreButton{
+    -fx-min-height: 50;
+    -fx-background-color: #fff9e9;
+    -fx-alignment: center;
+    -fx-border-width: 2;
+    -fx-border-color: rgba(164, 164, 164, 0.97);
+    -fx-border-style: solid;
+}
