@@ -26,6 +26,7 @@ public class PutByteReq implements HttpRequestProvider {
     @Override
     public HttpRequestBase getRequest() {
         HttpPut httpPost = new HttpPut(resource);
+
         httpPost.setEntity(new ByteArrayEntity(body));
 
         return httpPost;

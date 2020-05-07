@@ -2,7 +2,9 @@ package oleogin.http;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.http.HttpHost;
 import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpEntityEnclosingRequestBase;
 import org.apache.http.client.methods.HttpRequestBase;
 import org.apache.http.impl.client.CloseableHttpClient;
 
@@ -40,6 +42,16 @@ public class HttpService {
         }
     }
 
+    public <T> T executeSafe(HttpHost host, HttpRequestBase req, HttpResponseHandler<T> responseHandler)  {
+
+        try (CloseableHttpResponse response = httpClient.execute(host, req)) {
+
+            return responseHandler.handle(response);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public String wGet(String url, boolean ignoreNotFound, boolean rewrite){
         try {
             URI uri = new URI(url);
@@ -70,7 +82,6 @@ public class HttpService {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     public <T> T post(String url, Object body, TypeReference<T> typeReference ){

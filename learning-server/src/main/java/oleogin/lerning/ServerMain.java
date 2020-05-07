@@ -124,7 +124,6 @@ public class ServerMain {
             ServletOutputStream os = res.getOutputStream();
 
             ComputationGraph model = Models.getAttentionModel();
-            model.setParams(ModelSerializer.restoreComputationGraph(new File("mode.zip"), false).params());
 
             Set<String> trainingFiles = Arrays.stream(new File(trainingDataFolder).listFiles())
                     .flatMap(file -> Arrays.stream(file.listFiles()))

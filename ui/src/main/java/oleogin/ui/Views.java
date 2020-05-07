@@ -6,6 +6,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import oleogin.http.Http;
+import oleogin.http.HttpReq;
 
 
 public class Views {
@@ -43,6 +44,36 @@ public class Views {
 
 
         buttonBox.getChildren().addAll(button0,button1);
+
+        hBox.getChildren().addAll(imageView, buttonBox);
+
+        return hBox;
+    }
+
+    public static Pane trainingImgView(ImageDatum image, String host, int port){
+        HBox hBox = new HBox();
+        hBox.setId("row");
+        ImageView imageView = new ImageView(image.getUrl());
+
+        VBox buttonBox = new VBox();
+        buttonBox.setId("buttonBox");
+
+        Button button = new Button("delete");
+
+        button.setOnMouseClicked(event -> {
+            HttpReq.delete()
+                    .uri("/training/0/"+image.getId())
+                    .ok200bytes(host, port);
+
+            HttpReq.delete()
+                    .uri("/training/1/"+image.getId())
+                    .ok200bytes(host, port);
+
+            buttonBox.getChildren().remove(button);
+        });
+
+
+        buttonBox.getChildren().addAll(button);
 
         hBox.getChildren().addAll(imageView, buttonBox);
 
