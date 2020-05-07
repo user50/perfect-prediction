@@ -57,6 +57,13 @@ public class ServerMain {
             }
         });
 
+        app.delete("training/:class/:id", ctx -> {
+            String aClass = ctx.pathParam(":class");
+            String imageId = ctx.pathParam(":id");
+
+            new File(trainingDataFolder + "/" + aClass + "/" + imageId).delete();
+        });
+
         app.get("test/:class", ctx -> {
             String aClass = ctx.pathParam(":class");
 
@@ -119,12 +126,12 @@ public class ServerMain {
             ComputationGraph model = Models.getAttentionModel();
             model.setParams(ModelSerializer.restoreComputationGraph(new File("mode.zip"), false).params());
 
-            Set<String> trainingFiles = Arrays.stream(new File("d:\\anonimous\\").listFiles())
+            Set<String> trainingFiles = Arrays.stream(new File(trainingDataFolder).listFiles())
                     .flatMap(file -> Arrays.stream(file.listFiles()))
                     .map(file -> file.getName())
                     .collect(Collectors.toSet());
 
-            List<Pair<File, Double>> collect = new StreamBuilder<>(Arrays.stream(new File("d:\\train_data_set\\").listFiles()))
+            List<Pair<File, Double>> collect = new StreamBuilder<>(Arrays.stream(new File(allImagesFolder).listFiles()))
                     .mapStream(fileStream -> fileStream.filter(file -> !trainingFiles.contains(file.getName())))
                     .shuffle()
                     .limit(limit)
