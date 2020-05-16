@@ -57,7 +57,7 @@ public class Data {
                 .build();
     }
 
-    public static Function<String,List<Pane>> remoteImages(String host, int port){
+    public static Function<String,List<ImageDatum>> remoteImages(String host, int port){
         String trainingServerHost = "http://"+host+":"+port;
 
          return new FunctionBuilder<>(Function.<String>identity())
@@ -72,7 +72,6 @@ public class Data {
                             String imageId = imageResource.split("/")[imageResource.split("/").length - 1];
                             return new ImageDatum(imageId, trainingServerHost + imageResource);
                         })
-                        .map(imageDatum -> Views.testImgView(imageDatum, host, port ))
                         .collect(Collectors.toList())
                 )
                 .build();

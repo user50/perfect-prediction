@@ -1,21 +1,28 @@
 package oleogin.ui;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 public class Example extends Application {
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        DesignV2 design = new DesignV2(primaryStage)
-                .addProgressBarButton("run training", "/train")
-                .addProgressBarButton("run test", "/test")
-                .addShowImageButton("/training/0")
-                .addShowImageButton("/training/1")
-                .addShowImageButton("/test/1")
-                .addShowImageButton("/test/0")
-                .addShowImageButton("/test/undefined");
+    public void start(Stage stage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("/morda.fxml"));
 
-        primaryStage.show();
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("/stylesV2.css").toExternalForm());
+
+        stage.setTitle("Perfect prediction");
+        stage.setScene(scene);
+
+        stage.setWidth(Screen.getPrimary().getVisualBounds().getWidth());
+        stage.setHeight(Screen.getPrimary().getVisualBounds().getHeight());
+
+
+        stage.show();
     }
 
 

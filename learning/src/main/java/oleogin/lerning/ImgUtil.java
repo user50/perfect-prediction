@@ -6,16 +6,14 @@ import org.nd4j.linalg.indexing.NDArrayIndex;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.awt.image.RescaleOp;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.*;
 
 public class ImgUtil {
 
-    public static void dotProdShow(INDArray vector, INDArray act49, File img)  {
+    public static byte[] dotProdShow(INDArray vector, INDArray act49, byte[] bytes)  {
         long[] shape = act49.shape();
         try {
-            BufferedImage read = ImageIO.read(new FileInputStream(img));
+            BufferedImage read = ImageIO.read(new ByteArrayInputStream(bytes));
 
             int w = read.getWidth() / (int) shape[2];
             int h = read.getHeight() / (int) shape[3];
@@ -40,7 +38,11 @@ public class ImgUtil {
                 }
             }
 
-            ImageIO.write(read, "jpg", new File("d:/attended/"+img.getName()));
+            ByteArrayOutputStream os = new ByteArrayOutputStream();
+
+            ImageIO.write(read, "jpg", os);
+
+            return os.toByteArray();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

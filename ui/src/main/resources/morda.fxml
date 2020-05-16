@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.TilePane?>
+<VBox fx:id="root" fx:controller="oleogin.ui.Controller" xmlns="http://javafx.com/javafx/8.0.171"
+      xmlns:fx="http://javafx.com/fxml/1">
+
+    <HBox fx:id="head" >
+        <HBox fx:id="trainButtonBox">
+            <VBox>
+                <Button text="train" onAction="#train"/>
+                <ProgressBar fx:id="trainProgressBar" progress="0"/>
+            </VBox>
+            <VBox>
+                <Button text="image training 0" onAction="#showTrainImg0"/>
+                <Button text="image training 1" onAction="#showTrainImg1"/>
+                <Button text="200 random images" onAction="#randomImages"/>
+            </VBox>
+        </HBox>
+
+        <HBox fx:id="testButtonBox">
+            <VBox>
+                <Button text="test" onAction="#test"/>
+                <ProgressBar fx:id="testProgressBar" progress="0"/>
+            </VBox>
+            <VBox>
+                <Button text="image test 0" onAction="#showTestImg0"/>
+                <Button text="image test 1" onAction="#showTestImg1"/>
+                <Button text="image test undefined" onAction="#showTestImgUndefined"/>
+            </VBox>
+        </HBox>
+
+
+
+
+
+    </HBox>
+    <ScrollPane hbarPolicy="NEVER" fitToWidth="true"  >
+            <VBox  fx:id="contentBox"  />
+    </ScrollPane>
+
+</VBox>

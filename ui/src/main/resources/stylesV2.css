@@ -27,19 +27,31 @@
 
 #topBlock{
     -fx-background-color: #f6faff;
-    -fx-fit-to-width: true;
-    -fx-alignment: top-center;
+    -fx-alignment: left;
 }
 
 #contentBox{
-    -fx-background-color: #f6faff;
+    -fx-background-color: #c8d6ff;
     -fx-spacing: 4;
-    -fx-min-width: 1000;
+    -fx-alignment: CENTER;
 }
 
 #row{
     -fx-background-color: #fff9e9;
-    -fx-alignment: baseline-center;
+    -fx-border-width: 2;
+    -fx-border-color: rgba(164, 164, 164, 0.97);
+    -fx-border-style: solid;
+}
+
+#trainButtonBox{
+    -fx-background-color: #fff9e9;
+    -fx-border-width: 2;
+    -fx-border-color: rgba(164, 164, 164, 0.97);
+    -fx-border-style: solid;
+}
+
+#testButtonBox{
+    -fx-background-color: #fff9e9;
     -fx-border-width: 2;
     -fx-border-color: rgba(164, 164, 164, 0.97);
     -fx-border-style: solid;
@@ -50,15 +62,6 @@
     -fx-fit-to-width: true;
     -fx-fit-to-height: true;
     -fx-alignment: baseline-center;
-    -fx-border-width: 2;
-    -fx-border-color: rgba(164, 164, 164, 0.97);
-    -fx-border-style: solid;
-}
-
-#showMoreButton{
-    -fx-min-height: 50;
-    -fx-background-color: #fff9e9;
-    -fx-alignment: center;
     -fx-border-width: 2;
     -fx-border-color: rgba(164, 164, 164, 0.97);
     -fx-border-style: solid;

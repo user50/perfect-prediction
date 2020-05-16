@@ -91,7 +91,7 @@ mainClassName = 'oleogin.ui.Example'
  */
 jpro {
     // for debugging
-//     JVMArgs << '-agentlib:jdwp=transport=dt_socket,server=n,address=5006,suspend=y'
+     JVMArgs << '-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005'
 
     JVMArgs << '-Xmx1000m'
 
